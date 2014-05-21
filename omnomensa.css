@@ -73,3 +73,14 @@ body.meal-selected #span-rate {
 body.meal-selected #span-select {
 	display:none;
 }
+
+#footer {
+	font-family: sans-serif;
+	margin-top: 2em;
+	margin-bottom: 1em;
+	font-size: small;
+}
+
+a {
+	color: #2889be;
+}
