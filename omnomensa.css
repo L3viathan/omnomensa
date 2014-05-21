@@ -39,9 +39,10 @@ li:active, li.selected {
 	background-color: orange;
 }
 
-.rating li {
-	color: white;
+#rating {
 	display: none;
+	font-size: 5em;
+	cursor: pointer;
 }
 
 h3 {
@@ -58,7 +59,7 @@ body.meal-selected .meals li.selected {
 	display: block;
 }
 
-body.meal-selected .rating li {
+body.meal-selected #rating {
 	display: block;
 }
 
@@ -83,4 +84,16 @@ body.meal-selected #span-select {
 
 a {
 	color: #2889be;
+}
+
+.stars {
+	color: black;
+}
+
+.stars:hover {
+	color: gold;
+}
+
+#rating em {
+	font-size: 0.2em;
 }
