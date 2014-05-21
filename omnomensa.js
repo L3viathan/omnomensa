@@ -20,7 +20,7 @@ $.ajax({
 		//I'm so fucking sorry:
 		var elements = $("<div>").html(data).find(".tab-" + Math.round(new Date(yyyy, mm-1, dd).getTime()/1000) + " .desc");
         elements.each(function(){
-            elem = $(this).text().replace(/\s+\d+(,\d+)*\s*$/g, '').replace(/,.+/g, '').replace("mensaVital: ","").trim();
+            elem = $(this).text().replace(/\s+\d+(,\d+)*\s*$/g, '').replace(/,.+/g, '').replace("mensaVital: ","").replace("ZIS Spezialitätentag ","").replace("Heute für Sie: ","").replace("Vegan: ","").replace('( ','(').replace(' )',')').trim();
             if (elem == "täglich wechselnd") return;
             $(".meals").append('<li class="fancybox"><span class="name">'+elem+'</span></li>');
 		});
