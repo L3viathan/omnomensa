@@ -15,17 +15,13 @@ $.ajax({
 	url: "http://mensaproxy.l3vi.de/de/Essen/Essen-in-Saarbrucken/Speiseplan-aktuell",
 	dataType: "text",
 	success: function(data) {
-		var today = new Date();
-		var dd = today.getDate();
-		var mm = today.getMonth()+1;//January is 0!`
-		var yyyy = today.getFullYear();
-		if(dd<10){dd='0'+dd;}
-		if(mm<10){mm='0'+mm;}
+		var day = parseInt(/today = '(\d)'/.exec(data)[1]) + 1;
+		console.log(day);
 
-		//I'm so fucking sorry:
-		var elements = $("<div>").html(data).find(".tab-" + Math.round(new Date(yyyy, mm-1, dd).getTime()/1000) + " .desc");
+		var elements = $("<div>").html(data).find(".tab:nth-child(" + day + ") .desc");
+
         elements.each(function(){
-            elem = $(this).text().replace(/\s+\d+(,\d+)*\s*$/g, '').replace(/,.+/g, '').replace("mensaVital: ","").replace("Tagesessen: ","").replace("ZIS Spezialitätentag ","").replace("Heute für Sie: ","").replace("Vegan: ","").replace('( ','(').replace(' )',')').trim();
+            elem = $(this).text().replace(/\s+\d+(,\d+)*\s*$/g, '').replace(/,.+/g, '').replace("mensaVital: ","").replace("Tagesessen: ","").replace("ZIS Spezialitätentag ","").replace("Heute für Sie: ","").replace("Heute für Sie ","").replace("Vegan: ","").replace('( ','(').replace(' )',')').trim();
             if (elem == "täglich wechselnd") return;
             $.post('http://api.l3vi.de/mensa.json', 'rating=0&meal='+elem).done(function(rating_data){
             	if (rating_data['number'] == 0) {
