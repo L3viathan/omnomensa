@@ -19,6 +19,7 @@ $.ajax({
 		if(dd<10){dd='0'+dd}
 		if(mm<10){mm='0'+mm}
 
+		//I'm so fucking sorry:
 		var elements = $("<div>").html(data).find(".tab-" + Math.round(new Date(yyyy + "-" + mm + "-" + dd + " 00:00:00").getTime()/1000) + " .desc");
         for (var i=elements.length-1;i>=0;i--) {
             elem = elements[i].innerText.replace(/\s+\d+(,\d+)*\s*$/g, '').replace(/,.+/g, '').replace("mensaVital: ","").trim();
