@@ -12,7 +12,6 @@ li {
 	margin: 5px;
 	color: black;
 	cursor: pointer;
-	font-variant: small-caps;
 }
 
 li:hover {

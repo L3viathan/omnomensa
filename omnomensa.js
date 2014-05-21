@@ -25,20 +25,20 @@ $.ajax({
 		//I'm so fucking sorry:
 		var elements = $("<div>").html(data).find(".tab-" + Math.round(new Date(yyyy, mm-1, dd).getTime()/1000) + " .desc");
         elements.each(function(){
-            elem = $(this).text().replace(/\s+\d+(,\d+)*\s*$/g, '').replace(/,.+/g, '').replace("mensaVital: ","").replace("ZIS Spezialitätentag ","").replace("Heute für Sie: ","").replace("Vegan: ","").replace('( ','(').replace(' )',')').trim();
+            elem = $(this).text().replace(/\s+\d+(,\d+)*\s*$/g, '').replace(/,.+/g, '').replace("mensaVital: ","").replace("Tagesessen: ","").replace("ZIS Spezialitätentag ","").replace("Heute für Sie: ","").replace("Vegan: ","").replace('( ','(').replace(' )',')').trim();
             if (elem == "täglich wechselnd") return;
             $.post('http://api.l3vi.de/mensa.json', 'rating=0&meal='+elem).done(function(rating_data){
             	if (rating_data['number'] == 0) {
             		rating_data['number'] = 1;
             	}
-				$(".meals").append('<li class="fancybox"><span class="name">'+rating_data['name']+'</span><span class="meal-stars">' + "★".repeat(Math.round(rating_data['stars']/rating_data['number'])) + '</span></li>');
+				$(".meals").append('<li class="fancybox"><span class="name">'+rating_data['name']+' </span> <span class="meal-stars"> ' + "★".repeat(Math.round(rating_data['stars']/rating_data['number'])) + '</span></li>');
+				$(".fancybox").click(function(event) {
+					$(this).addClass('selected');
+					$("body").addClass('meal-selected');
+					$(this).off("click");
+					$("#rating").data('meal',$(this).text());
+				});
 			});
-		});
-		$(".fancybox").click(function(event) {
-			$(this).addClass('selected');
-			$("body").addClass('meal-selected');
-			$(this).off("click");
-			$("#rating").data('meal',$(this).text());
 		});
 		$("#rating span").click(function(event) {
 			$("#rating span").off("click");
