@@ -96,3 +96,13 @@ a {
 #rating em {
 	font-size: 0.2em;
 }
+
+.price {
+	font-size: 0.7em;
+	color: grey;
+	margin-left: 0.4em;
+}
+
+.meal-stars {
+	color: gold;
+}
