@@ -21,7 +21,7 @@ $.ajax({
 		var elements = $("<div>").html(data).find(".tab:nth-child(" + day + ") .desc");
 
         elements.each(function(){
-            elem = $(this).text().replace(/\s+\d+(,\d+)*\s*$/g, '').replace(/,.+/g, '').replace("mensaVital: ","").replace("Tagesessen: ","").replace("ZIS Spezialitätentag ","").replace("Heute für Sie: ","").replace("Heute für Sie ","").replace("Vegan: ","").replace('( ','(').replace(' )',')').trim();
+            elem = $(this).text().replace(/\s+\d+(,\d+)*\s*$/g, '').replace(/,.+/g, '').replace("mensaVital: ","").replace("Tagesessen: ","").replace("ZIS Spezialitätentag ","").replace("Heute für Sie: ","").replace("Heute für Sie ","").replace("Vegan: ","").replace('( ','(').replace(' )',')').replace(/Büffet.+$/g,'Büffet').trim();
             if (elem == "täglich wechselnd") return;
             $.post('http://api.l3vi.de/mensa.json', 'rating=0&meal='+elem).done(function(rating_data){
             	if (rating_data['number'] == 0) {
@@ -29,6 +29,7 @@ $.ajax({
             	}
 				$(".meals").append('<li class="fancybox"><span class="name">'+rating_data['name']+' </span> <span class="meal-stars"> ' + "★".repeat(Math.round(rating_data['stars']/rating_data['number'])) + '</span></li>');
 				$(".fancybox").click(function(event) {
+					History.pushState({state:1}, "Mensadingsi: Rate meal", "?rate");
 					$(this).addClass('selected');
 					$("body").addClass('meal-selected');
 					$(this).off("click");
@@ -46,5 +47,24 @@ $.ajax({
 		});
 	}
 });
+
+(function(window,undefined){
+    History.Adapter.bind(window,'statechange',function(){
+    	console.log(History.getState());
+        if (History.getState()['data']['state'] == 0) {
+        	$(".fancybox").removeClass('selected');
+        	$("body").removeClass('meal-selected');
+        	$(".fancybox").click(function(event) {
+					History.pushState(1, "Mensadingsi: Rate meal", "?rate");
+					$(this).addClass('selected');
+					$("body").addClass('meal-selected');
+					$(this).off("click");
+					$("#rating").data('meal',$(this).text());
+			});
+        }
+    });
+    History.replaceState({state:0}, "Mensadingsi", "?home");
+
+})(window);
 
 });
