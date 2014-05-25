@@ -16,10 +16,7 @@ $.ajax({
     dataType: "text",
     success: function(data) {
         var day = parseInt(/today = '(\d)'/.exec(data)[1]) + 1;
-        console.log(day);
-
         var elements = $("<div>").html(data).find(".tab:nth-child(" + day + ") .desc");
-
         elements.each(function(){
             elem = $(this).text().replace(/\s+\d+(,\d+)*\s*$/g, '').replace(/,.+/g, '').replace("mensaVital: ","").replace("Tagesessen: ","").replace("ZIS Spezialitätentag ","").replace("Heute für Sie: ","").replace("Heute für Sie ","").replace("Vegan: ","").replace('( ','(').replace(' )',')').replace(/Büffet.+$/g,'Büffet').trim();
             var price = $(this).prev().children('.price:first-child').text();
@@ -27,6 +24,9 @@ $.ajax({
             $.post('http://api.l3vi.de/mensa.json', 'rating=0&meal='+elem).done(function(rating_data){
                 if (rating_data['number'] == 0) {
                     rating_data['number'] = 1;
+                }
+                if (rating_data['meta']) {
+                	return;
                 }
                 $(".meals").append('<li class="fancybox"><span class="name">'+rating_data['name']+' </span> <span class="meal-stars"> ' + "★".repeat(Math.round(rating_data['stars']/rating_data['number'])) + '</span><span class="price">' + price + '</span></li>');
                 $(".fancybox").click(function(event) {
@@ -38,6 +38,9 @@ $.ajax({
                 });
             });
         });
+		if($(".fancybox").length == 0) {
+			$(".meals").append('<span class="message">Go eat somewhere else today</span>');
+		}
         $("#rating span").click(function(event) {
             $("#rating span").off("click");
             console.log({rating: $(this).attr('id'), meal: $("#rating").data('meal')});
