@@ -17,10 +17,12 @@ $.ajax({
     success: function(data) {
         var day = parseInt(/today = '(\d)'/.exec(data)[1]) + 1;
         var elements = $("<div>").html(data).find(".tab:nth-child(" + day + ") .desc");
+        var anything = false;
         elements.each(function(){
             elem = $(this).text().replace(/\s+\d+(,\d+)*\s*$/g, '').replace(/,.+/g, '').replace("mensaVital: ","").replace("Tagesessen: ","").replace("ZIS Spezialitätentag ","").replace("Heute für Sie: ","").replace("Heute für Sie ","").replace("Vegan: ","").replace('( ','(').replace(' )',')').replace(/Büffet.+$/g,'Büffet').trim();
             var price = $(this).prev().children('.price:first-child').text();
             if (elem == "täglich wechselnd") return;
+            anything = true;
             $.post('http://api.l3vi.de/mensa.json', 'rating=0&meal='+elem).done(function(rating_data){
                 if (rating_data['number'] == 0) {
                     rating_data['number'] = 1;
@@ -38,14 +40,12 @@ $.ajax({
                 });
             });
         });
-		if($(".fancybox").length == 0) {
+		if(!anything) {
 			$(".meals").append('<span class="message">Go eat somewhere else today</span>');
 		}
         $("#rating span").click(function(event) {
             $("#rating span").off("click");
-            console.log({rating: $(this).attr('id'), meal: $("#rating").data('meal')});
             $.post('http://api.l3vi.de/mensa.json', 'rating=' + $(this).attr('id') + '&meal=' + $("#rating").data('meal')).done(function(data){
-                console.log(data);
                 $("#rating").html("★".repeat(Math.round(data['stars']/data['number'])) + "<em>(" + data['number'] + " votes)</em>")
             });
         });
@@ -54,7 +54,6 @@ $.ajax({
 
 (function(window,undefined){
     History.Adapter.bind(window,'statechange',function(){
-        console.log(History.getState());
         if (History.getState()['data']['state'] == 0) {
             $(".fancybox").removeClass('selected');
             $("body").removeClass('meal-selected');
