@@ -1,4 +1,4 @@
-ul {
+/*ul {
 	list-style-type: none;
 	-webkit-padding-start: 0;
 }
@@ -101,6 +101,169 @@ a {
 	font-size: 0.7em;
 	color: grey;
 	margin-left: 0.4em;
+}
+
+.meal-stars {
+	color: gold;
+}
+
+.message {
+	font-family: sans-serif;
+	font-size: 1.5em;
+	font-style: italic;
+	margin-left: 2em;
+}
+
+*/
+
+body {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+ul {
+	list-style-type: none;
+	-webkit-padding-start: 0;
+}
+
+.name, .meal-stars, .meal-stars-black {
+	float: left;
+}
+
+.fancybox .item {
+	width: 100%;
+}
+
+.fancybox div {
+	display: inline-block;
+}
+
+.meal-stars-black {
+	color: #aaa;
+}
+
+ul.meals {
+	margin: 0 2em;
+}
+
+li {
+	padding: 8px;
+	font-size: 1.2em;
+	font-family: sans-serif;
+	border: 1px solid gray;
+	border-radius: 5px;
+	margin: 10px 5px;
+	color: black;
+	cursor: pointer;
+	line-height: 0;
+}
+
+li div {
+	line-height: 100%;
+}
+
+li:hover {
+	background-color: #2889be;
+	color: white;
+}
+
+li:active, li.selected {
+	color: black;
+	border-color: white;
+	background-color: white;
+	cursor: default;
+}
+
+#good {
+	background-color: limegreen;
+}
+
+#bad {
+	background-color: #f77;
+}
+
+#okay {
+	background-color: orange;
+}
+
+#rating {
+	display: none;
+	font-size: 5em;
+	cursor: pointer;
+}
+
+h3 {
+	font-family: serif;
+	font-size: xx-large;
+	margin: 1em;
+	border-bottom: 1px solid black;
+	font-weight: normal;
+	font-style: italic;
+}
+
+body.meal-selected .meals li {
+	display: none;
+}
+
+body.meal-selected .meals li.selected {
+	display: block;
+}
+
+body.meal-selected #rating {
+	display: block;
+}
+
+#span-rate {
+	display: none;
+}
+
+body.meal-selected #span-rate {
+	display:inline;
+}
+
+body.meal-selected #span-select {
+	display:none;
+}
+
+#footer {
+	font-family: sans-serif;
+	margin: 2em;
+	margin-bottom: 1em;
+	font-size: small;
+	color: #aaa;
+	text-align: center;
+}
+
+a {
+	color: #2889be;
+}
+
+.stars {
+	color: black;
+}
+
+.stars:hover {
+	color: gold;
+}
+
+#rating em {
+	font-size: 0.2em;
+}
+
+.price, .meal-rated {
+	font-size: 0.7em;
+	color: grey;
+	margin: 0px 0.4em 0 0.4em;
+	float: left;
+}
+
+li:hover .price, li:hover .meal-rated {
+	color: white;
+}
+
+.meal-all-stars {
+	float: right;
+	margin: 2px 0px -2px;
 }
 
 .meal-stars {
