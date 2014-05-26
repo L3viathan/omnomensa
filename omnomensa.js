@@ -30,7 +30,7 @@ $.ajax({
                 if (rating_data['meta']) {
                 	return;
                 }
-                $(".meals").append('<li class="fancybox"><span class="name">'+rating_data['name']+' </span> <span class="meal-stars"> ' + "★".repeat(Math.round(rating_data['stars']/rating_data['number'])) + '</span><span class="price">' + price + '</span></li>');
+                $(".meals").append('<li class="fancybox"><span class="name">'+rating_data['name']+' </span> <span class="meal-stars"> ' + "★".repeat(Math.round(rating_data['stars']/rating_data['number'])) + '</span><span class="meal-stars-black">' + (rating_data['stars'] != 0 ? "★".repeat(5-Math.round(rating_data['stars']/rating_data['number'])) : '') + '</span><span class="price">' + price + '</span></li>');
                 $(".fancybox").click(function(event) {
                     History.pushState({state:1}, "Mensadingsi: Rate meal", "?rate");
                     $(this).addClass('selected');
