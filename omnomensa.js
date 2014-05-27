@@ -25,7 +25,8 @@ function getMeals() {
                     if (rating_data['meta']) {
                         return;
                     }
-                    $(".meals").append('<li class="fancybox"><div class="item"><span class="name">'+rating_data['name']+' </span> <div class="meal-all-stars"><span class="meal-stars"> ' + "★".repeat(Math.round(rating_data['stars']/rating_data['number'])) + '</span><span class="meal-stars-black">' + (rating_data['stars'] != 0 ? "★".repeat(5-Math.round(rating_data['stars']/rating_data['number'])) : '') + '</span><span class="price">' + price + '</span></div></div></li>');
+                    var maybeprice = price ? '<span class="price">' + price + '</span>' : '';
+                    $(".meals").append('<li class="fancybox"><div class="item"><span class="name">'+rating_data['name']+' </span> <div class="meal-all-stars"><span class="meal-stars"> ' + "★".repeat(Math.round(rating_data['stars']/rating_data['number'])) + '</span><span class="meal-stars-black">' + (rating_data['stars'] != 0 ? "★".repeat(5-Math.round(rating_data['stars']/rating_data['number'])) : '') + '</span>' + maybeprice + '</div></div></li>');
                     $(".fancybox").click(function(event) {
                         History.pushState({state:1}, "Mensadingsi: Rate meal", "?rate");
                         $(this).addClass('selected');
