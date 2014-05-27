@@ -197,11 +197,13 @@ li:active, li.selected {
 
 h3 {
 	font-family: serif;
-	font-size: xx-large;
-	margin: 1em;
+	font-size: 2.5em;
+	margin: 1em 1em 0em 1em;
+	text-align: center;
 	border-bottom: 1px solid black;
 	font-weight: normal;
 	font-style: italic;
+	padding-bottom: 35px;
 }
 
 body.meal-selected .meals li {
@@ -286,15 +288,37 @@ li.selected:hover .price, li.selected:hover .meal-rated {
 
 .days {
 	text-align: center;
-	margin-top: -1em;
-	margin-bottom: 1em;
+	margin-top: -10px;
+	margin-bottom: 23px;
+	height: 32px;
 }
 
 .day {
+	font-family: sans-serif;
 	color: #2889be;
 	cursor: pointer;
+	border-bottom: 1px solid gray;
+	border-top: 1px solid gray;
+	border-right: 1px solid gray;
+	padding: 6px;
+	background-color: white;
+}
+
+.days span:first-child {
+	border-left: 1px solid #2889be;
+	border-radius: 5px 0 0 5px;
+}
+
+.days span:last-child {
+	border-radius: 0 5px 5px 0;
+}
+
+.day:hover {
+	color: white;
+	background-color: #2889be;
 }
 
 .day-selected {
-	font-weight: bold;
+	color: white;
+	background-color: gray;
 }
