@@ -58,6 +58,22 @@ li:active, li.selected {
 	cursor: default;
 }
 
+li.selected {
+	margin-top: 30px;
+}
+
+.selected span.price {
+	display: none;
+}
+
+.selected .name {
+	float: none;
+}
+
+.selected .item {
+	text-align: center;
+}
+
 #good {
 	background-color: limegreen;
 }
@@ -208,8 +224,11 @@ body.meal-selected .days {
 	background-color: gray;
 }
 
-@media (screen and (max-device-width: 480px)) {
+@media screen and (max-device-width: 399px) {
 	span.full {
 		display: none;
+	}
+	#rating {
+		font-size: 2.5em;
 	}
 }
