@@ -189,12 +189,12 @@ body.meal-selected .days {
 	background-color: white;
 }
 
-.days span:first-child {
+.days>span:first-child {
 	border-left: 1px solid #2889be;
 	border-radius: 5px 0 0 5px;
 }
 
-.days span:last-child {
+.days>span:last-child {
 	border-radius: 0 5px 5px 0;
 }
 
