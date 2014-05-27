@@ -36,7 +36,7 @@ $.ajax({
                     $(this).addClass('selected');
                     $("body").addClass('meal-selected');
                     $(this).off("click");
-                    $("#rating").data('meal',$(this).children(".name").text());
+                    $("#rating").data('meal',$(this).find(".name").text());
                 });
             });
         });
