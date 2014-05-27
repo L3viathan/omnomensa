@@ -190,7 +190,7 @@ li:active, li.selected {
 
 #rating {
 	display: none;
-	font-size: 5em;
+	font-size: 3em;
 	cursor: pointer;
 	text-align: center;
 }
