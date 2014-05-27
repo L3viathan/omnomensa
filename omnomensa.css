@@ -208,3 +208,9 @@ body.meal-selected .days {
 	color: white;
 	background-color: gray;
 }
+
+@media (screen and (max-device-width: 399px)) {
+	.full {
+		display: none;
+	}
+}
