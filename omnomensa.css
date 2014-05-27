@@ -119,6 +119,8 @@ a {
 body {
 	max-width: 900px;
 	margin: 0 auto;
+	width: 100%;
+	overflow-x: hidden;
 }
 
 ul {
@@ -190,6 +192,7 @@ li:active, li.selected {
 	display: none;
 	font-size: 5em;
 	cursor: pointer;
+	text-align: center;
 }
 
 h3 {
@@ -275,4 +278,8 @@ li:hover .price, li:hover .meal-rated {
 	font-size: 1.5em;
 	font-style: italic;
 	margin-left: 2em;
+}
+
+li.selected:hover .price, li.selected:hover .meal-rated {
+	color: grey;
 }
