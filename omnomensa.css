@@ -1,121 +1,3 @@
-/*ul {
-	list-style-type: none;
-	-webkit-padding-start: 0;
-}
-
-li {
-	padding: 8px;
-	font-size: 1.5em;
-	font-family: sans-serif;
-	border: 1px solid gray;
-	border-radius: 5px;
-	margin: 5px;
-	color: black;
-	cursor: pointer;
-}
-
-li:hover {
-	background-color: #2889be;
-	color: white;
-}
-
-li:active, li.selected {
-	color: black;
-	border-color: white;
-	background-color: white;
-	cursor: default;
-}
-
-#good {
-	background-color: limegreen;
-}
-
-#bad {
-	background-color: #f77;
-}
-
-#okay {
-	background-color: orange;
-}
-
-#rating {
-	display: none;
-	font-size: 5em;
-	cursor: pointer;
-}
-
-h3 {
-	font-family: sans-serif;
-	font-size: xx-large;
-	margin: 1em;
-}
-
-body.meal-selected .meals li {
-	display: none;
-}
-
-body.meal-selected .meals li.selected {
-	display: block;
-}
-
-body.meal-selected #rating {
-	display: block;
-}
-
-#span-rate {
-	display: none;
-}
-
-body.meal-selected #span-rate {
-	display:inline;
-}
-
-body.meal-selected #span-select {
-	display:none;
-}
-
-#footer {
-	font-family: sans-serif;
-	margin-top: 2em;
-	margin-bottom: 1em;
-	font-size: small;
-}
-
-a {
-	color: #2889be;
-}
-
-.stars {
-	color: black;
-}
-
-.stars:hover {
-	color: gold;
-}
-
-#rating em {
-	font-size: 0.2em;
-}
-
-.price {
-	font-size: 0.7em;
-	color: grey;
-	margin-left: 0.4em;
-}
-
-.meal-stars {
-	color: gold;
-}
-
-.message {
-	font-family: sans-serif;
-	font-size: 1.5em;
-	font-style: italic;
-	margin-left: 2em;
-}
-
-*/
-
 body {
 	max-width: 900px;
 	margin: 0 auto;
@@ -190,7 +72,7 @@ li:active, li.selected {
 
 #rating {
 	display: none;
-	font-size: 3em;
+	font-size: 5em;
 	cursor: pointer;
 	text-align: center;
 }
@@ -234,7 +116,7 @@ body.meal-selected #span-select {
 	font-family: sans-serif;
 	margin: 2em;
 	margin-bottom: 1em;
-	font-size: small;
+	font-size: 10px;
 	color: #aaa;
 	text-align: center;
 }
