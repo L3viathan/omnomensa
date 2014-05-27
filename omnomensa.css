@@ -209,7 +209,7 @@ body.meal-selected .days {
 }
 
 @media (screen and (max-device-width: 480px)) {
-	.full {
+	span.full {
 		display: none;
 	}
 }
