@@ -27,7 +27,7 @@ ul {
 }
 
 ul.meals {
-	margin: 0 2em;
+	margin: 0 1em;
 }
 
 li {
@@ -80,7 +80,7 @@ li:active, li.selected {
 h3 {
 	font-family: serif;
 	font-size: 2.5em;
-	margin: 1em 1em 0em 1em;
+	margin: 1em 0.5em 0em 0.5em;
 	text-align: center;
 	border-bottom: 1px solid black;
 	font-weight: normal;
@@ -174,8 +174,7 @@ body.meal-selected .days {
 
 .days {
 	text-align: center;
-	margin-top: -10px;
-	margin-bottom: 23px;
+	margin: -10px 0.5em 23px 0.5em;
 	height: 32px;
 }
 
@@ -190,12 +189,12 @@ body.meal-selected .days {
 	background-color: white;
 }
 
-.days>span:first-child {
+.days span:first-child {
 	border-left: 1px solid #2889be;
 	border-radius: 5px 0 0 5px;
 }
 
-.days>span:last-child {
+.days span:last-child {
 	border-radius: 0 5px 5px 0;
 }
 
@@ -209,7 +208,7 @@ body.meal-selected .days {
 	background-color: gray;
 }
 
-@media (screen and (max-device-width: 399px)) {
+@media (only screen and (max-device-width: 480px)) {
 	.full {
 		display: none;
 	}
