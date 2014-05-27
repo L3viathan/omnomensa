@@ -284,6 +284,10 @@ li.selected:hover .price, li.selected:hover .meal-rated {
 	color: grey;
 }
 
+body.meal-selected .days {
+	display: none;
+}
+
 .days {
 	text-align: center;
 	margin-top: -1em;
