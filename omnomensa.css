@@ -149,6 +149,7 @@ a {
 
 .stars:hover {
 	color: gold;
+	text-shadow: black 0 0 2px;
 }
 
 #rating em {
@@ -261,4 +262,9 @@ li.meta {
 
 .selected div.meal-all-stars, li.selected:hover div.meal-all-stars  {
 	display: none;
+}
+
+h3 a:link, h3 a:hover, h3 a:active, h3 a:focus {
+	color: black;
+	text-decoration: none;
 }
