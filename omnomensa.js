@@ -18,6 +18,7 @@ function getMeals() {
                 var price = $(this).prev().children('.price:first-child').text();
                 anything = true;
                 $.post('http://api.l3vi.de/mensa.json', 'rating=0&meal='+elem).done(function(rating_data){
+                    console.log(rating_data);
                     if (rating_data['number'] == 0) {
                         rating_data['number'] = 1;
                     }
