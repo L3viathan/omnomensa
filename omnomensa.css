@@ -225,7 +225,7 @@ body.meal-selected .days {
 }
 
 @media screen and (max-device-width: 399px) {
-	span.full {
+	span.full, .meal-rated {
 		display: none;
 	}
 	#rating {
