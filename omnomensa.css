@@ -251,3 +251,7 @@ li.meta {
 .meta .name {
 	float: none;
 }
+
+.price {
+	min-width: 35px;
+}
