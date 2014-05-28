@@ -247,3 +247,7 @@ li.meta {
 .meta .item {
 	text-align: center;
 }
+
+.meta .name {
+	float: none;
+}
