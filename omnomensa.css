@@ -75,18 +75,6 @@ li.selected {
 	text-align: center;
 }
 
-#good {
-	background-color: limegreen;
-}
-
-#bad {
-	background-color: #f77;
-}
-
-#okay {
-	background-color: orange;
-}
-
 #rating {
 	display: none;
 	font-size: 5em;
@@ -174,13 +162,6 @@ li:hover .price, li:hover .meal-rated {
 
 .meal-stars {
 	color: gold;
-}
-
-.message {
-	font-family: sans-serif;
-	font-size: 1.5em;
-	font-style: italic;
-	margin-left: 2em;
 }
 
 li.selected:hover .price, li.selected:hover .meal-rated {

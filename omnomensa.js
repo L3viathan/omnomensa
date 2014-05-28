@@ -22,14 +22,21 @@ function getMeals() {
                         rating_data['number'] = 1;
                     }
                     if (rating_data['meta']) {
-                        meta = "meta";
+                        li_class = "meta";
                     }
                     else {
-                        meta = "fancybox";
+                        li_class = "fancybox";
                     }
 
                     var maybeprice = '<span class="price">' + (price ? price : 'N/A') + '</span>';
-                    $(".meals").append('<li class="' + meta + '"><div class="item"><span class="name">'+rating_data['name']+' </span> <div class="meal-all-stars">' + ((rating_data['stars'] > 0) ? '<span class="meal-rated">' + rating_data['number'] + ' vote' + (rating_data['number'] == 1 ? '' : 's') + '</span>': '') + '<span class="meal-stars"> ' + "★".repeat(Math.round(rating_data['stars']/rating_data['number'])) + '</span><span class="meal-stars-black">' + (rating_data['stars'] != 0 ? "★".repeat(5-Math.round(rating_data['stars']/rating_data['number'])) : '') + '</span>' + maybeprice + '</div></div></li>');
+                    var maybenumber = ((rating_data['stars'] > 0) ?
+                                            '<span class="meal-rated">' + rating_data['number'] + ' vote' + 
+                                            (rating_data['number'] == 1 ?
+                                                '':
+                                                's')
+                                            +'</span>':
+                                        '');
+                    $(".meals").append('<li class="' + li_class + '"><div class="item"><span class="name">'+rating_data['name']+' </span> <div class="meal-all-stars">' + maybenumber + '<span class="meal-stars"> ' + "★".repeat(Math.round(rating_data['stars']/rating_data['number'])) + '</span><span class="meal-stars-black">' + (rating_data['stars'] != 0 ? "★".repeat(5-Math.round(rating_data['stars']/rating_data['number'])) : '') + '</span>' + maybeprice + '</div></div></li>');
                     $(".fancybox").click(function(event) {
                         History.pushState({state:1}, "Mensadingsi: Rate meal", "?rate");
                         $(this).addClass('selected');
@@ -40,7 +47,7 @@ function getMeals() {
                 });
             });
             if(!anything) {
-                $(".meals").append('<span class="message">Go eat somewhere else today</span>');
+                $(".meals").append('<li class="meta">Go eat somewhere else today</li>');
             }
             $("#rating span").click(function(event) {
                 $("#rating span").off("click");
