@@ -14,9 +14,8 @@ function getMeals() {
             var elements = $("<div>").html(data).find(".tab:nth-child(" + day + ") .desc");
             var anything = false;
             elements.each(function(){
-                elem = $(this).text().replace(/\s+\d+(,\d+)*\s*$/g, '').replace(/,.+/g, '').replace("mensaVital: ","").replace("Tagesessen: ","").replace("ZIS Spezialitätentag ","").replace("Heute für Sie: ","").replace("Heute für Sie ","").replace("Vegan: ","").replace('( ','(').replace(' )',')').replace(/Büffet.+$/g,'Büffet').trim();
+                elem = $(this).text().replace(/\s+\d+(,\d+)*\s*$/g, '').replace(/,.+/g, '').replace("mensaVital: ","").replace("Tagesessen: ","").replace("ZIS Spezialitätentag ","").replace("Vegan: ","").replace('( ','(').replace(' )',')').replace(/Büffet.+$/g,'Büffet').replace(/Heute für Sie.+$/,"Salatbüffet").replace(/täglich wechselnd.+$/,"Salatbüffet").trim();
                 var price = $(this).prev().children('.price:first-child').text();
-                if (elem == "täglich wechselnd") return;
                 anything = true;
                 $.post('http://api.l3vi.de/mensa.json', 'rating=0&meal='+elem).done(function(rating_data){
                     if (rating_data['number'] == 0) {
