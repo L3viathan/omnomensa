@@ -29,7 +29,7 @@ function getMeals() {
                     }
 
                     var maybeprice = '<span class="price">' + (price ? price : 'N/A') + '</span>';
-                    $(".meals").append('<li class="' + meta + '"><div class="item"><span class="name">'+rating_data['name']+' </span> <div class="meal-all-stars">' + ((rating_data['stars'] > 0) ? '<span class="meal-rated">' + rating_data['number'] + ' votes</span>': '') + '<span class="meal-stars"> ' + "★".repeat(Math.round(rating_data['stars']/rating_data['number'])) + '</span><span class="meal-stars-black">' + (rating_data['stars'] != 0 ? "★".repeat(5-Math.round(rating_data['stars']/rating_data['number'])) : '') + '</span>' + maybeprice + '</div></div></li>');
+                    $(".meals").append('<li class="' + meta + '"><div class="item"><span class="name">'+rating_data['name']+' </span> <div class="meal-all-stars">' + ((rating_data['stars'] > 0) ? '<span class="meal-rated">' + rating_data['number'] + ' vote' + (rating_data['number'] == 1 ? '' : 's') + '</span>': '') + '<span class="meal-stars"> ' + "★".repeat(Math.round(rating_data['stars']/rating_data['number'])) + '</span><span class="meal-stars-black">' + (rating_data['stars'] != 0 ? "★".repeat(5-Math.round(rating_data['stars']/rating_data['number'])) : '') + '</span>' + maybeprice + '</div></div></li>');
                     $(".fancybox").click(function(event) {
                         History.pushState({state:1}, "Mensadingsi: Rate meal", "?rate");
                         $(this).addClass('selected');
