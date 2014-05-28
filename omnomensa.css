@@ -136,7 +136,7 @@ a {
 	text-shadow: none;
 }
 
-.stars:hover {
+.stars:hover, .stars-rated {
 	color: gold;
 	text-shadow: black 0 0 2px;
 }
