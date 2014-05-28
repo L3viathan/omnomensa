@@ -46,7 +46,7 @@ li div {
 	line-height: 100%;
 }
 
-li:hover {
+li.fancybox:hover {
 	background-color: #2889be;
 	color: white;
 }
@@ -231,4 +231,16 @@ body.meal-selected .days {
 	#rating {
 		font-size: 2.5em;
 	}
+}
+
+li.meta .meal-all-stars {
+	display: none;
+}
+
+li.meta {
+	text-align: center;
+	font-family: serif;
+	font-style: italic;
+	font-size: 1.5em;
+	margin: 10px 5px;
 }
