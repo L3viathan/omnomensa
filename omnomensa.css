@@ -30,7 +30,7 @@ ul.meals {
 	margin: 0 1em;
 }
 
-li {
+li.fancybox {
 	padding: 8px;
 	font-size: 1.2em;
 	font-family: sans-serif;
