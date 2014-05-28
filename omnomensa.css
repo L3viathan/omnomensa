@@ -227,7 +227,7 @@ body.meal-selected .days {
 	background-color: gray;
 }
 
-@media screen and (max-device-width: 399px) {
+@media screen and (max-width: 399px) {
 	span.full, .meal-rated {
 		display: none;
 	}
