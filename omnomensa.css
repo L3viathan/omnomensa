@@ -227,6 +227,7 @@ li.meta {
 	font-style: italic;
 	font-size: 1.5em;
 	margin: 10px 5px;
+	border: 1px solid transparent;
 }
 
 .meta .item {
