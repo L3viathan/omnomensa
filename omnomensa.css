@@ -133,6 +133,7 @@ a {
 
 .stars {
 	color: black;
+	text-shadow: none;
 }
 
 .stars:hover {
