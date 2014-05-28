@@ -238,9 +238,12 @@ li.meta .meal-all-stars {
 }
 
 li.meta {
-	text-align: center;
 	font-family: serif;
 	font-style: italic;
 	font-size: 1.5em;
 	margin: 10px 5px;
+}
+
+.meta .item {
+	text-align: center;
 }
