@@ -52,8 +52,11 @@ function getMeals() {
             $("#rating span").click(function(event) {
                 $("#rating span").off("click");
                 $.post('http://api.l3vi.de/mensa.json', 'rating=' + $(this).attr('id') + '&meal=' + $("#rating").data('meal')).done(function(data){
-                    console.log(data);
-                    $("#rating").html("★".repeat(Math.round(data['stars']/data['number'])) + "<em>(" + data['number'] + " votes)</em>")
+                    //console.log(data);
+                    //$("#rating").html("★".repeat(Math.round(data['stars']/data['number'])) + "<em>(" + data['number'] + " votes)</em>");
+
+                    $("#rating").html("<span class='stars-rated'>" + "★".repeat(Math.round(data['stars']/data['number']))+ "</span>"
+                        + "★".repeat(5 - (Math.round(data['stars']/data['number']))) + "<em>(" + data['number'] + " votes)</em>");
                 });
             });
             $("#day-"+day).addClass('day-selected');
