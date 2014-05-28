@@ -42,6 +42,7 @@ li.fancybox {
 	cursor: pointer;
 	line-height: 0;
 	background-color: white;
+	-webkit-text-size-adjust: 100%;
 }
 
 li div {
@@ -135,6 +136,7 @@ body.meal-selected #span-select {
 	font-size: 10px;
 	color: #aaa;
 	text-align: center;
+	-webkit-text-size-adjust: 100%;
 }
 
 a {
