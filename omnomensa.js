@@ -14,7 +14,7 @@ function getMeals() {
             var elements = $("<div>").html(data).find(".tab:nth-child(" + day + ") .desc");
             var anything = false;
             elements.each(function(){
-                elem = $(this).text().replace(/\s+\d+(,\d+)*\s*$/g, '').replace(/,.+/g, '').replace("mensaVital: ","").replace("Tagesessen: ","").replace("ZIS Spezialitätentag ","").replace("Vegan: ","").replace('( ','(').replace(' )',')').replace(/Büffet.+$/g,'Büffet').replace(/Heute für Sie.+$/,"Salatbüffet").replace(/täglich wechselnd.+$/,"Salatbüffet").trim();
+                elem = $(this).text().replace(/\d[\s\S]*$/g, '').replace(/,.+/g, '').replace("mensaVital: ","").replace("Tagesessen: ","").replace("ZIS Spezialitätentag ","").replace("Vegan: ","").replace('( ','(').replace(' )',')').replace(/Büffet.+$/g,'Büffet').replace(/Heute für Sie.+$/,"Salatbüffet").replace(/täglich wechselnd.+$/,"Salatbüffet").trim();
                 var price = $(this).prev().children('.price:first-child').text();
                 anything = true;
                 $.post('http://api.l3vi.de/mensa.json', 'rating=0&meal='+elem).done(function(rating_data){
@@ -52,9 +52,6 @@ function getMeals() {
             $("#rating span").click(function(event) {
                 $("#rating span").off("click");
                 $.post('http://api.l3vi.de/mensa.json', 'rating=' + $(this).attr('id') + '&meal=' + $("#rating").data('meal')).done(function(data){
-                    //console.log(data);
-                    //$("#rating").html("★".repeat(Math.round(data['stars']/data['number'])) + "<em>(" + data['number'] + " votes)</em>");
-
                     $("#rating").html("<span class='stars-rated'>" + "★".repeat(Math.round(data['stars']/data['number']))+ "</span>"
                         + "★".repeat(5 - (Math.round(data['stars']/data['number']))) + "<em>(" + data['number'] + " votes)</em>");
                 });
