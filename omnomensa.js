@@ -49,6 +49,12 @@ function getMeals() {
             if(!anything) {
                 $(".meals").append('<li class="meta">Go eat somewhere else today</li>');
             }
+            $("#rating span").mouseover(function(event) {
+                $('.rating-description').hide();
+                $('#rd-' + $(this).attr('id')).show();
+                event.stopPropagation();
+            });
+
             $("#rating span").click(function(event) {
                 $("#rating span").off("click");
                 $.post('http://api.l3vi.de/mensa.json', 'rating=' + $(this).attr('id') + '&meal=' + $("#rating").data('meal')).done(function(data){

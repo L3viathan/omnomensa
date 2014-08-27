@@ -82,6 +82,12 @@ li.selected {
 	text-align: center;
 }
 
+.rating-description {
+    font-size: medium;
+    font-style: italic;
+    margin-top: 0;
+}
+
 h3 {
 	font-family: serif;
 	font-size: 2.5em;
