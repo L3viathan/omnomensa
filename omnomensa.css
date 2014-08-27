@@ -86,6 +86,7 @@ li.selected {
     font-size: medium;
     font-style: italic;
     margin-top: 0;
+    display: none;
 }
 
 h3 {

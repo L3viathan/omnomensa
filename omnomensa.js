@@ -55,6 +55,11 @@ function getMeals() {
                 event.stopPropagation();
             });
 
+            $("#rating span").mouseout(function(event) {
+                $('.rating-description').hide();
+                event.stopPropagation();
+            });
+
             $("#rating span").click(function(event) {
                 $("#rating span").off("click");
                 $.post('http://api.l3vi.de/mensa.json', 'rating=' + $(this).attr('id') + '&meal=' + $("#rating").data('meal')).done(function(data){
